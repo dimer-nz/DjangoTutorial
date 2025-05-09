@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from django.shortcuts import reverse
 from django.views.generic import TemplateView, FormView
 
-from .forms import ContactForm
+from .forms import MailForm
 
 
 class SuccessView(TemplateView):
@@ -11,7 +11,7 @@ class SuccessView(TemplateView):
 
 
 class ContactView(FormView):
-    form_class = ContactForm
+    form_class = MailForm
     template_name = "contact/index.html"
 
     def get_success_url(self):
