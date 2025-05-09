@@ -35,4 +35,7 @@ class ContactView(FormView):
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[settings.NOTIFY_EMAIL],
         )
+
+        form.save()
+        
         return super(ContactView, self).form_valid(form)
