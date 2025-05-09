@@ -4,5 +4,5 @@ from .views import SuccessView, ContactView
 
 urlpatterns = [
     path("", ContactView.as_view(), name="contact"),
-    path("success/", SuccessView.as_view(), name="success"),
+    path("success/", SuccessView.as_view(), name="contact_success"),
 ]
