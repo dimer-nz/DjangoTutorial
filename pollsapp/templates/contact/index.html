@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {%block extracss%}
-    <link rel="stylesheet" href="{% static 'contact/contact.css' %}">
+  <link rel="stylesheet" href="{% static 'contact/contact.css' %}">
 {%endblock extracss%}
+
 {% block content %}
   <h1>Contact Us</h1>
   <form method="post" novalidate>
     <div class="fcontainer">
       {% csrf_token %}
       {% for field in form %}
-        <div>
-          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+        <div class="flmnt">
+          <label for="{{ field.id_for_label }}" class="flabel">{{ field.label }}</label>
           {{ field}}
           {% if field.errors %}
             <div class="text-danger">{{ field.errors }}</div>
@@ -18,8 +20,6 @@
         </div>
       {% endfor %}
     </div>
-    <div class="">
-      <button type="submit" class="btn btn-green">Send</button>
-    </div>
+    <div> <button type="submit" class="bt bt-green ">Send</button> </div>
   </form>
 {% endblock %}

@@ -4,11 +4,10 @@ from django.shortcuts import reverse
 from django.views.generic import TemplateView, FormView
 
 from .forms import MailForm
-
+from .task import send_contact_email
 
 class SuccessView(TemplateView):
     template_name = "contact/success.html"
-
 
 class ContactView(FormView):
     form_class = MailForm
@@ -22,19 +21,21 @@ class ContactView(FormView):
         subject = form.cleaned_data.get("subject_line")
         message = form.cleaned_data.get("message_content")
 
-        full_message = f"""
-            Received message below from {email}, {subject}
-            ________________________
+        # full_message = f"""
+        #     Received message below from {email}, {subject}
+        #     ________________________
 
 
-            {message}
-            """
-        send_mail(
-            subject="Received contact form submission",
-            message=full_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[settings.NOTIFY_EMAIL],
-        )
+        #     {message}
+        #     """
+        # send_mail(
+        #     subject="Received contact form submission",
+        #     message=full_message,
+        #     from_email=settings.DEFAULT_FROM_EMAIL,
+        #     recipient_list=[settings.NOTIFY_EMAIL],
+        # )
+
+        send_contact_email.delay(email, subject, message)
 
         form.save()
         

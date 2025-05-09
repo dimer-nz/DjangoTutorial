@@ -129,7 +129,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email handling
-
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" 
 NOTIFY_EMAIL = "n.zagavieros@dimersoftware.com"
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend' 
@@ -139,3 +138,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nikoszagavieros@gmail.com'
 EMAIL_HOST_PASSWORD = 'czpw ebey hpcp mfxy'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# RabbitMQ user creds
+RABBIT_MQ_USER = 'thecap3tan'
+RABBIT_MQ_PASS = 'pass'
+RABBIT_MQ_VHOST = 'pollsapp'
+
+# Celery config
+CELERY_BROKER_URL = "amqp://%s:%s@localhost:5672/%s" % (RABBIT_MQ_USER, RABBIT_MQ_PASS, RABBIT_MQ_VHOST)
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'
+

@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
 <div class="card text-center">
   <div class="card-body">
     <h1>Welcome To PollsApp</h1>
     <p>This is an example Django polling app</p>
-    <a class="bt" href="{% url 'polls:index' %}">
-        View Available Polls</a
-      >
+    <a class="bt" href="{% url 'polls:index' %}">View Available Polls</a>
   </div>
   </div>
 {% endblock %}
