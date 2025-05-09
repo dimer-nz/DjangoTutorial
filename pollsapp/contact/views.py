@@ -7,7 +7,7 @@ from .forms import MailForm
 
 
 class SuccessView(TemplateView):
-    template_name = "success.html"
+    template_name = "contact/success.html"
 
 
 class ContactView(FormView):
@@ -15,12 +15,12 @@ class ContactView(FormView):
     template_name = "contact/index.html"
 
     def get_success_url(self):
-        return reverse("contact")
+        return reverse("contact_success")
 
     def form_valid(self, form):
-        email = form.cleaned_data.get("email")
-        subject = form.cleaned_data.get("subject")
-        message = form.cleaned_data.get("message")
+        email = form.cleaned_data.get("mail_address")
+        subject = form.cleaned_data.get("subject_line")
+        message = form.cleaned_data.get("message_content")
 
         full_message = f"""
             Received message below from {email}, {subject}
