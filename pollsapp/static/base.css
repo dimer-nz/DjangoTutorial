@@ -1,7 +1,30 @@
-.btn{
-    border-radius: 50rem !important
+.bt{
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: rgb(52, 52, 52);
+    border-radius: 50rem !important;
+    color: white;
+    text-decoration: none;
+    border: none;
+    width: auto;
+    height: auto;
+    margin-right: 0.75rem;
+
+    transition: transform 0.3s ease;
+    transform-origin: center;
 }
 
-.btn-green{
+.bt:hover{
+    text-decoration: none;
+    font-weight: bolder;
+    transform: scale(1.1);
+    color: white;
+}
+
+.bt-green{
     background-color: rgba(0, 182, 0, 0.809);
+}
+
+.bt-grey{
+    background-color: grey;
 }

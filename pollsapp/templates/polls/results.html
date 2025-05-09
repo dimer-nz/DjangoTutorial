@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <h1 class="mb-5 text-center">{{ question.question_text }}</h1>
 
@@ -10,6 +11,6 @@
 	{% endfor %}
 </ul>
 
-<a class="btn btn-secondary" href="{% url 'polls:index' %}">Back To Polls</a>
-<a class="btn btn-dark" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<a class="bt" href="{% url 'polls:index' %}">Back To Polls</a>
+<a class="bt bt-grey" href="{% url 'polls:detail' question.id %}">Vote again?</a>
 {% endblock %}

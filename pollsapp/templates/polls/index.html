@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %} 
   <h1 class="text-center mb-3">Poll Questions</h1>
   {% if latest_question_list %}
@@ -6,8 +7,8 @@
       <div class="card mb-3">
         <div class="card-body">
           <p class="lead">{{ question.question_text }}</p>
-          <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary btn-sm" style="background-color: rgb(3, 193, 0);">Vote Now</a>
-          <a href="{% url 'polls:results' question.id %}" class="btn btn-secondary btn-sm">Results</a>
+          <a href="{% url 'polls:detail' question.id %}" class="bt bt-green">Vote Now</a>
+          <a href="{% url 'polls:results' question.id %}" class="bt">Results</a>
         </div>
       </div>
     {% endfor %}
